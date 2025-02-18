@@ -18,7 +18,7 @@ A minimal React + TypeScript + Vite application.
 
 1. Clone the repository:
    ```sh
-   git clone <repository-url>
+   git clone git@github.com:KseniiaMasna/TodayApp.git
    cd today-app
    ```
 
