@@ -1,9 +1,10 @@
-const Auth = () => {
+import Auth from '../features/auth/Auth'
+
+const AuthPage = () => {
   return (
-    <div>
-      <h1>Auth</h1>
-    </div>
+    <Auth />
   )
 }
 
-export default Auth;
+export default AuthPage
+
