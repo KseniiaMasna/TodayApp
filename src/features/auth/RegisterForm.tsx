@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import validEmail from './emailValidation';
 
-const navigate = useNavigate();
 
 const RegisterForm: React.FC = () => {
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: ''
   });
+  
 
   const [confirmPassword, setConfirmPassword] = useState('');
 
