@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TaskList from "../components/TaskList.js";
 import AddTask from '../components/AddTask.js';
+import LogoutButton from '../components/ui/LogoutButton.js';
 
 const initialTasks = [
   { id: '1', text: 'Task 1', checked: false },
@@ -45,6 +46,7 @@ const Home = () => {
         onChange={(e) => setText(e.target.value)}
         text={text}
       />
+      <LogoutButton className="border-2 border-blue-500 text-blue-500 py-2 px-4 rounded hover:bg-blue-500 hover:text-white transition duration-300" />
     </div>
   );
 };

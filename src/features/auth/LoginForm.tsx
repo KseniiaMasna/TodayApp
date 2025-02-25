@@ -9,7 +9,7 @@ const LoginForm: React.FC = () => {
     email: '',
     password: '',
   });
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
