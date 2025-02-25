@@ -10,18 +10,19 @@ interface TaskItem {
 interface TaskListProps {
   tasks: TaskItem[];
   onTaskChange: (id: string, checked: boolean) => void;
+  onTaskDelete: (id: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onTaskChange }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, onTaskChange, onTaskDelete }) => {
   return (
-    <div>
+    <div className="p-4">
       {tasks.map(task => (
-        <div key={task.id} className="flex items-center mb-2">
+        <div key={task.id} className="mb-2">
           <Task 
             text={task.text} 
             checked={task.checked} 
-            onChange={(checked) => onTaskChange(task.id, checked)}
-            onDelete={() => console.log(`Delete task with id: ${task.id}`)}
+            onChange={(checked) => onTaskChange(task.id, checked)} 
+            onDelete={() => onTaskDelete(task.id)}
           />
         </div>
       ))}
