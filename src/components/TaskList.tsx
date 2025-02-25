@@ -11,9 +11,10 @@ interface TaskListProps {
   tasks: TaskItem[];
   onTaskChange: (id: string, checked: boolean) => void;
   onTaskDelete: (id: string) => void;
+  onTaskEdit: (id: string, text: string) => void;
 }
 
-const TaskList: React.FC<TaskListProps> = ({ tasks, onTaskChange, onTaskDelete }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks, onTaskChange, onTaskDelete, onTaskEdit }) => {
   return (
     <div className="p-4">
       {tasks.map(task => (
@@ -23,6 +24,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onTaskChange, onTaskDelete }
             checked={task.checked} 
             onChange={(checked) => onTaskChange(task.id, checked)} 
             onDelete={() => onTaskDelete(task.id)}
+            onEdit={(text) => onTaskEdit(task.id, text)}
           />
         </div>
       ))}

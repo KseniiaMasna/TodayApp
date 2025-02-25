@@ -28,12 +28,17 @@ const Home = () => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
+  const handleTaskEdit = (id: string, text: string) => {
+    setTasks(tasks.map(task => task.id === id ? { ...task, text } : task));
+  };
+
   return (
     <div>
       <TaskList 
         tasks={tasks} 
         onTaskChange={handleTaskChange}
         onTaskDelete={handleTaskDelete}
+        onTaskEdit={handleTaskEdit}
       />
       <AddTask
         onClick={handleAdd}
