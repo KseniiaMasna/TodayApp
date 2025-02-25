@@ -11,8 +11,8 @@ interface TaskProps {
 
 const Task: React.FC<TaskProps> = ({ text, checked, onChange, onDelete }) => {
   return (
-    <div className="flex justify-between items-center text-neutral-700">
-      <span>{text}</span>
+    <div className="flex justify-between items-center text-neutral-700 p-4 bg-neutral-50 rounded-md mb-2">
+      <span className="text-base">{text}</span>
       <div className="flex items-center">
         <input 
           type="checkbox" 

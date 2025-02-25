@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TaskList from "../components/TaskList.js";
+import AddTask from '../components/AddTask.js';
 
 const initialTasks = [
   { id: '1', text: 'Task 1', checked: false },
@@ -20,6 +21,9 @@ const Home = () => {
       <TaskList 
         tasks={tasks} 
         onTaskChange={handleTaskChange}       
+      />
+      <AddTask
+        onAdd={(text) => console.log(`Add task with text: ${text}`)}
       />
     </div>
   );
