@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import TaskList from "../components/TaskList.js";
 import AddTask from '../components/AddTask.js';
 
@@ -10,20 +10,35 @@ const initialTasks = [
 
 const Home = () => {
   const [tasks, setTasks] = useState(initialTasks);
+  const [text, setText] = useState('');
 
   const handleTaskChange = (id: string, checked: boolean) => {
     setTasks(tasks.map(task => task.id === id ? { ...task, checked } : task));
   };
 
+  const handleAdd = () => {
+    if (text.trim()) {
+      const newTask = { id: Date.now().toString(), text, checked: false };
+      setTasks([...tasks, newTask]);
+      setText('');
+    }
+  };
+
+  const handleTaskDelete = (id: string) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
 
   return (
     <div>
       <TaskList 
         tasks={tasks} 
-        onTaskChange={handleTaskChange}       
+        onTaskChange={handleTaskChange}
+        onTaskDelete={handleTaskDelete}
       />
       <AddTask
-        onAdd={(text) => console.log(`Add task with text: ${text}`)}
+        onClick={handleAdd}
+        onChange={(e) => setText(e.target.value)}
+        text={text}
       />
     </div>
   );
