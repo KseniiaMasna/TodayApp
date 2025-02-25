@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import validEmail from './emailValidation.ts'
 
-const navigate = useNavigate();
 
 const LoginForm: React.FC = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import validEmail from './emailValidation';
 
-const navigate = useNavigate();
+
 
 const RegisterForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,8 @@ const RegisterForm: React.FC = () => {
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate();
 
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -42,7 +44,7 @@ const RegisterForm: React.FC = () => {
     // Handle registration logic here
 
     try {
-      const response = await fetch('http://localhost:3000/register', {
+      const response = await fetch('https://gentle-ridge-77531-9b28a833c368.herokuapp.com/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
