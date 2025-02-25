@@ -20,7 +20,8 @@ const TaskList: React.FC<TaskListProps> = ({ tasks, onTaskChange }) => {
           <Task 
             text={task.text} 
             checked={task.checked} 
-            onChange={(checked) => onTaskChange(task.id, checked)} 
+            onChange={(checked) => onTaskChange(task.id, checked)}
+            onDelete={() => console.log(`Delete task with id: ${task.id}`)}
           />
         </div>
       ))}
